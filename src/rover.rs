@@ -15,7 +15,6 @@ impl Rover {
         Self {
             direction,
             position,
-            j,
         }
     }
 
