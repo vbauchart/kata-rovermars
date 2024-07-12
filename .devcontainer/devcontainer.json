@@ -27,7 +27,8 @@
 				"editor.formatOnSaveMode": "file"
 			},
 			"extensions": [
-				"rust-lang.rust-analyzer"
+				"rust-lang.rust-analyzer",
+				"swellaby.vscode-rust-test-adapter"
 			]
 		}
 	},
