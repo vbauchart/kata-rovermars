@@ -101,7 +101,7 @@ impl Position {
     }
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Debug)]
 struct Position {
     x: i32,
     y: i32,
@@ -117,7 +117,7 @@ enum Direction {
 
 #[cfg(test)]
 mod tests {
-    use crate::rover::{Direction, Position, Rover};
+    use super::*;
 
     #[test]
     fn had_initial_position() {
@@ -220,5 +220,18 @@ mod tests {
         rover.move_forward_with_limit(Position { x: 10, y: 10 });
 
         assert!(rover.position == Position { x: 0, y: 0 })
+    }
+
+    #[test]
+    fn move_forward_north_with_limit_not_reached() {
+        let mut rover = Rover::new(Position { x: 5, y: 5 }, Direction::N);
+
+        rover.move_forward_with_limit(Position { x: 10, y: 10 });
+
+        assert!(
+            rover.position == Position { x: 5, y: 6 },
+            "{:#?}",
+            rover.position
+        )
     }
 }
